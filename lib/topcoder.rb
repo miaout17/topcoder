@@ -1,5 +1,3 @@
-require "topcoder/version"
-
-module Topcoder
-  # Your code goes here...
-end
+require 'topcoder/api'
+require 'topcoder/version'
+require 'topcoder/client'
