@@ -11,6 +11,18 @@ module Topcoder
       time :date
     end
 
+    def dd_rating_history
+      int :coder_id
+      int :round_id
+      time :date
+      int :old_rating
+      int :new_rating
+      int :volatility
+      int :rank
+      float :percentile
+      int :rating_order
+    end
+
     def dd_round_results
       int :room_id
       int :coder_id

@@ -15,6 +15,9 @@ module Topcoder
     def get_algorithm_round_results(round_id)
       get('', {:c => 'dd_round_results', :rd => round_id})
     end
+    def get_algorithm_rating_history(coder_id)
+      get('', {:c => 'dd_rating_history', :cr => coder_id})
+    end
   end
 end
 
