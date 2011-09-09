@@ -12,6 +12,9 @@ module Topcoder
     def get_algorithm_round_list
       get('', {:c => 'dd_round_list'})
     end
+    def get_algorithm_round_results(round_id)
+      get('', {:c => 'dd_round_results', :rd => round_id})
+    end
   end
 end
 
