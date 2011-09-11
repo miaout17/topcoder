@@ -6,6 +6,28 @@ module Topcoder
       @data = data
     end
 
+    def coder_basic_data
+      int :coder_id
+      str :handle
+      str :country_name
+    end
+
+    def coder_rating_data(type)
+      int "#{type}_rating"
+      int "#{type}_vol"
+      int "#{type}_num_ratings"
+    end
+
+    def dd_coder_list
+      coder_basic_data
+      %w{alg des dev mar}.each { |t| coder_rating_data(t) }
+    end
+
+    def dd_active_algorithm_list
+      coder_basic_data
+      coder_rating_data(:alg)
+    end
+
     def dd_round_list
       int :round_id
       time :date
@@ -78,6 +100,10 @@ module Topcoder
       end
     end
 
+    def str(key)
+      # Just ensuare the key exists
+    end
+
     def int(key)
       data[key] = data[key].to_i
     end
@@ -91,7 +117,7 @@ module Topcoder
       data[key] = DateTime.parse(data[key])
     end
 
-    converter :int, :float, :time
+    converter :str, :int, :float, :time
 
   end
 end
